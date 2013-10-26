@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<link href="Gekko.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+ <script src="result.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="container">
+  <div id="header">
+    <div id="logo">
+      <div align="left">Gekko Stock Market </div>
+    </div><div id="twitter">
+
+
+
+
+
+</div>
+    <div id="date"><script language="JavaScript">
+<!-- Begin
+// Get today's current date.
+var now = new Date();
+// Array list of days.
+var days = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+// Array list of months.
+var months = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+// Calculate the number of the current day in the week.
+var date = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+// Calculate four digit year.
+function fourdigits(number){
+    return (number < 1000) ? number + 1900 : number;
+                                }
+// Join it all together
+today = days[now.getDay()] + ", " +
+        months[now.getMonth()] + " " +
+        date + ", " +
+        (fourdigits(now.getYear())) ;
+// Print out the data.
+document.write(today);
+// End -->
+</script></div>
+    
+    
+  </div>
+  <div class="contentbox">
+    <div class="sidebar">
+      <p>
+        <img src="Search alt.png" width="20" height="20"  alt=""/>Search Stuff
+        <input type="text" name="textfield" id="Autocomplete1">
+        <input type="button" value="Search" id="searchbutton">
+</p>
+      <p>&nbsp; </p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+    </div>
+    <div class="pagecontent">
+       
+    
+      <div class="pagecon" id="results">
+    
+      
+     <script src="result.js" type="text/javascript"></script>
+
+        <div id="CompanyName"></div>
+        <div id="CompanyContent"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
