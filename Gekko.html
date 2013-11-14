@@ -20,7 +20,9 @@
 	 
     </script>
      <script type="text/javascript">
-     
+     google.load('visualization', '1', {packages: ['annotatedtimeline']});
+	     google.setOnLoadCallback(drawVisualization);
+
     </script>
     
 </head>
@@ -96,7 +98,7 @@ document.write(today);
       
      <script src="result.js" type="text/javascript"></script>
 
-        <div id="CompanyName">
+       // <div id="CompanyName">
          
          <div id="companyInfo">
 
@@ -105,7 +107,7 @@ document.write(today);
         <div id="CompanyContent"></div>
         
         </div>
-    </div>
+   // </div>
   </div>
 </div>
 
@@ -120,6 +122,7 @@ document.write(today);
      
   
 </div>
-
+ <script src="result.js" type="text/javascript"></script>
+<div id="visualization" style="width: 800px; height: 400px;"></div>
 </body>
 </html>

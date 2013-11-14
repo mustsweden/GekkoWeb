@@ -743,8 +743,9 @@ header {
 	margin-right: auto;
 	width: auto;
 	clear: left;
-	display: none;
+	display: inherit;
 }
+
 
 
 /* Menu stuff */
@@ -806,7 +807,6 @@ header {
 #nav>li:hover>a {
 	color: #E20048;
 	border-top-color: #E20048;
-	display: block;
 }
 
 #nav>li.dropdown>a {

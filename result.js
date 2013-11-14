@@ -1,7 +1,13 @@
+// JavaScript Document
+
+
+
+
 $(document).ready(function(){
-$('#secondgraph').hide();
+	
 var companyname
 $("#searchbutton").click(function() {
+	
 	 edValue = document.getElementById("searchboxcontent");
 	 var str1 = "http://dev.semprog.se/Gekko.svc/GetInfo/";
          companyname = edValue.value;
@@ -40,7 +46,6 @@ $("#searchbutton").click(function() {
 
 
 /*Candle Stick Charts */
-
 var s = []
 var chartdata =[]
 var coname
@@ -52,8 +57,9 @@ var miao = [["10", 20, 28, 38, 45],["20",30,20,21,50]]
  
  
 
-
-function drawVisualization() {
+ google.load("visualization", "1", {packages:["corechart"]});
+     
+function drawVisualization1() {
         
 		$("#searchbutton").click(function() {
 			edValue1 = document.getElementById("searchboxcontent");
@@ -92,14 +98,16 @@ var data = google.visualization.arrayToDataTable(
         };
 
         var chart = new google.visualization.CandlestickChart(document.getElementById('CompanyContent'));
+		
         chart.draw(data, options);
 		
 });
-
       }
 	  
 
       google.setOnLoadCallback(drawVisualization);
+	        google.setOnLoadCallback(drawVisualization1);
+
 
 
 
@@ -115,44 +123,132 @@ var data = google.visualization.arrayToDataTable(
 
 
 // toggle between divs
-$('#togglesecondchart').click(function() {
-    $('#CompanyContent').hide();
-	$('#secondgraph').show().css("height","1000px");
+/*$('#togglesecondchart').click(function() {
+    //$('#CompanyContent').hide();
+	
+	$('#CompanyContent').hide();
+	$('#secondgraph').show(); 
+	return true;
+	
 });
 $('#togglefirstchart').click(function() {
-    $('#secondgraph').hide();
-	$('#CompanyContent').show();
-});
-
+ $('#CompanyContent').show(); 
+ $('#secondgraph').hide();  //$('#secondgraph').hide("slow");
+   
+	//$('#CompanyContent').show();
+});*/
 /*line charts*/
 
- google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales'],
-          ['2004',  1000],
-          ['2005',  1170],
-          ['2006',  660],
-		   ['2004',  1000],
-          ['2005',  1170],
-          ['2006',  660],
-		   ['2004',  1000],
-          ['2005',  1170],
-          ['2006',  660],
-          ['2007',  1030]
-        ]);
+
+    /* function drawChart() {
+		  	$("#searchbutton").click(function() {
+			edValue1 = document.getElementById("searchboxcontent");
+			companyname1 = edValue1.value;
+			charturl = "http://dev.semprog.se/Gekko.svc/GetDaily/" + companyname1 + "/20120525/20120601";
+
+var testdata = [];
+testdata.push(['year','miao'])
+var linedata=[];
+
+$.ajax({ 
+    url: charturl, 
+    dataType: 'json', 
+    
+    async: false, 
+    success: function(json){ 
+	
+	for (var i = 0; i < json.length; i++) {
+
+	var date = new Date(parseInt(json[i].Date.substr(6)));
+	var date2 = Date.parse(parseInt(json[i].Date))
+	
+	linedata.push([json[i].Symbol,parseFloat(json[i].Open)])
+	
+	}
+	    
+
+
+
+   } 
+   
+});
+
+
+  var data = google.visualization.arrayToDataTable(
+
+
+linedata, true
+
+        );
 
         var options = {
-          title: 'Company Performance'
+          title: 'Company Performance',
+		   animation:{
+        duration: 10000,
+        easing: 'out',
+      },
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('secondgraph'));
         chart.draw(data, options);
-      }
+});
 
 
+   
+      }*/
+
+ google.setOnLoadCallback(drawChart);
+     google.load('visualization', '1', {packages: ['annotatedtimeline']});
+    function drawVisualization() {
+		$("#searchbutton").click(function() {
+			edValue1 = document.getElementById("searchboxcontent");
+			companyname1 = edValue1.value;
+			charturl = "http://dev.semprog.se/Gekko.svc/GetDaily/" + companyname1 + "/20080525/20131114";
+
+var testdata = [];
+testdata.push(['year','miao'])
+var linedata=[];
+
+$.ajax({ 
+    url: charturl, 
+    dataType: 'json', 
+    
+    async: false, 
+    success: function(json){ 
+	
+	for (var i = 0; i < json.length; i++) {
+
+	var date = new Date(parseInt(json[i].Date.substr(6)));
+	
+	
+	linedata.push([new Date(date),parseFloat(json[i].Open)])
+	}
+	    
+
+
+
+   } 
+   
+});
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Date');
+      data.addColumn('number', 'Price');
+  
+      data.addRows(
+   
+	   linedata
+      );
+	  var jjj = new Date(2008, 1 ,1);
+      var annotatedtimeline = new google.visualization.AnnotatedTimeLine(
+          document.getElementById('secondgraph'));
+      annotatedtimeline.draw(data, {'displayAnnotations': true});
+	  });
+    }
+	
+    
+    
  
+  
 });
 
 
