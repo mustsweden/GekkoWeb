@@ -13,61 +13,82 @@
 <![endif]-->
  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
  <script src="result.js" type="text/javascript"></script>
-
+<script type="text/javascript" src="jquery.smarticker.js"></script>
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['corechart']});
+	 
+    </script>
+     <script type="text/javascript">
+     
+    </script>
+    
 </head>
 
 <body>
 
-<div id="container">
+
+<div class="container">
   <div id="header">
     <div id="logo">
-      <div align="left">Gekko Stock Market </div>
-    </div><div id="twitter">
+     
+      <img src="logo.png" alt="" width="210" height="71" align="left"/>  <div id="searchbox">
+     
+        <input type="text" id="searchboxcontent" placeholder="Search here..." required>
+        <button id="searchbutton" >Search</button>
+   
+        </div> 
+    
+     
+    </div>
+     <div id="date"><script language="JavaScript">
 
-
-
-
-
-</div>
-    <div id="date"><script language="JavaScript">
-<!-- Begin
 // Get today's current date.
 var now = new Date();
-// Array list of days.
+
 var days = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
-// Array list of months.
+
 var months = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
-// Calculate the number of the current day in the week.
+
 var date = ((now.getDate()<10) ? "0" : "")+ now.getDate();
-// Calculate four digit year.
 function fourdigits(number){
     return (number < 1000) ? number + 1900 : number;
                                 }
-// Join it all together
 today = days[now.getDay()] + ", " +
         months[now.getMonth()] + " " +
         date + ", " +
         (fourdigits(now.getYear())) ;
-// Print out the data.
 document.write(today);
-// End -->
-</script></div>
-    
-    
+</script>
+ 
+</div>
+  
   </div>
-  <div class="contentbox">
-    <div class="sidebar">
-      <p>
-        <img src="Search alt.png" width="20" height="20"  alt=""/>Search Stuff
-        <input type="text" name="textfield" id="Autocomplete1">
-        <input type="button" value="Search" id="searchbutton">
-</p>
-      <p>&nbsp; </p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-    </div>
-    <div class="pagecontent">
+  <div class="target">
+  
+	<ul>
+		<li><a href="#">New studies shows that Dani is a King</a></li>
+		<li><a href="#">Cookie Sales are very high, experts say you need to save them for a rainy day</a></li>
+		<li><a href="#">Hamburgers are filled with vitamines and extra awesome stuff</a></li>
+		<li><a href="#">SE&M decided to give every student a Macbook Retina display, an iPad Air and an iPhone 5S</a></li>
+		<li><a href="#">Yeaaaa none of the previous news were correct</a></li>
+		
+	</ul>
+</div>
+  <div id="menu"><ul id="nav">
+	<li id="toggleMenu"><a href="#nav">Menu</a></li>
+	<li id="hideMenu"><a href="#toggleMenu">Menu</a></li>
+	<li><a href="javascript:location.reload(true);">Home</a></li>
+	<li id="togglefirstchart"><a href="#">CandleStick Charts</a></li>
+	<li id="togglesecondchart"><a href="#">Second Type Charts </a></li>
+	<li><a href="#">Third Type Charts</a></li>
+	<li><a href="#">Compare some stuff</a></li>
+</ul></div>
+  
+  
+
+<div class="contentbox">
+  <div class="pagecontent">
        
     
       <div class="pagecon" id="results">
@@ -75,11 +96,29 @@ document.write(today);
       
      <script src="result.js" type="text/javascript"></script>
 
-        <div id="CompanyName"></div>
+        <div id="CompanyName">
+         
+         <div id="companyInfo">
+
+         </div>
+         <div id="secondgraph"></div>
         <div id="CompanyContent"></div>
-      </div>
+        
+        </div>
     </div>
   </div>
+</div>
+
+<script type="text/javascript">
+	$('.target').smarticker({
+		theme: 1,
+		title: 'News',
+		speed: 2000,
+		pausetime: 4000
+	});
+	</script>
+     
+  
 </div>
 
 </body>

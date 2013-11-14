@@ -1,142 +1,91 @@
 @charset "UTF-8";
 body {
-	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
-	background-color: #000000;
-	margin: 0;
 	padding: 0;
-	color: #000;
+	left: 15px;
 }
 /* ~~ Element/tag selectors ~~ */
-ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+ul, ol, dl { 
 	padding: 0;
 	margin: 0;
 }
 h1, h2, h3, h4, h5, h6, p {
-	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing block. The remaining bottom margin will hold it away from any elements that follow. */
+	margin-top: 0;	 
 	padding-right: 15px;
-	padding-left: 15px; /* adding the padding to the sides of the elements within the blocks, instead of the block elements themselves, gets rid of any box model math. A nested block with side padding can also be used as an alternate method. */
+	padding-left: 15px; 
 	float: right;
 }
-a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+a img { 
 	border: none;
 }
-/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+
 a:link {
 	color: #42413C;
-	text-decoration: underline; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+	text-decoration: underline; 
 }
 a:visited {
 	color: #6E6C64;
 	text-decoration: underline;
 }
-a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+a:hover, a:active, a:focus { 
 	text-decoration: none;
 }
-/* ~~ This fixed width container surrounds all other blocks ~~ */
-#container {
-	width: 950px;
-	background-color: #1f1f1f;
-	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
+
+.container {
+	width: 1000px;
+	background-color: #FDFDFD;
+	margin: 0 auto; 
 	height: 700px;
-	padding-left: 45px;
-	padding-right: 45px;
+	color: #010101;
+	position: relative;
+	border-collapse: collapse;
+	border: thin solid #DAD9D9;
 }
-/* ~~ The header is not given a width. It will extend the full width of your layout. ~~ */
+
 header {
 	background-color: #ADB96E;
-}
-/* ~~ These are the columns for the layout. ~~ 
-
-1) Padding is only placed on the top and/or bottom of the block elements. The elements within these blocks have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the block itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the block element and place a second block element within it with no width and the padding necessary for your design.
-
-2) No margin has been given to the columns since they are all floated. If you must add margin, avoid placing it on the side you're floating toward (for example: a right margin on a block set to float right). Many times, padding can be used instead. For blocks where this rule must be broken, you should add a "display:inline" declaration to the block element's rule to tame a bug where some versions of Internet Explorer double the margin.
-
-3) Since classes can be used multiple times in a document (and an element can also have multiple classes applied), the columns have been assigned class names instead of IDs. For example, two sidebar blocks could be stacked if necessary. These can very easily be changed to IDs if that's your preference, as long as you'll only be using them once per document.
-
-4) If you prefer your nav on the left instead of the right, simply float these columns the opposite direction (all left instead of all right) and they'll render in reverse order. There's no need to move the blocks around in the HTML source.
-
-*/
-.sidebar1 {
-	float: right;
-	width: 180px;
-	background-color: #EADCAE;
-	padding-bottom: 10px;
-}
-.content {
-	padding: 10px 0;
-	width: 780px;
-	float: right;
+	color: #000000;
 }
 
-/* ~~ This grouped selector gives the lists in the .content area space ~~ */
-.content ul, .content ol {
-	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
-}
 
-/* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
-nav ul{
-	list-style: none; /* this removes the list marker */
-	border-top: 1px solid #666; /* this creates the top border for the links - all others are placed using a bottom border on the LI */
-	margin-bottom: 15px; /* this creates the space between the navigation on the content below */
-}
-nav li {
-	border-bottom: 1px solid #666; /* this creates the button separation */
-}
-nav a, nav a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
-	padding: 5px 5px 5px 15px;
-	display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
-	width: 160px;  /*this width makes the entire button clickable for IE6. If you don't need to support IE6, it can be removed. Calculate the proper width by subtracting the padding on this link from the width of your sidebar container. */
-	text-decoration: none;
-	background-color: #C6D580;
-}
-nav a:hover, nav a:active, nav a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
-	background-color: #ADB96E;
-	color: #FFF;
-}
 
-/* ~~ The footer ~~ */
-footer {
-	padding: 10px 0;
-	background-color: #CCC49F;
-	position: relative;/* this gives IE6 hasLayout to properly clear */
-	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
-}
 
-/*HTML 5 support - Sets new HTML 5 tags to display:block so browsers know how to render the tags properly. */
-header, section, footer, aside, article, figure {
-	display: block;
-}
+
 #header {
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	height: 200px;
+	height: 126px;
+	color: #000000;
 }
 #logo {
 	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
-	font-size: 38px;
+	font-size: 24px;
 	font-style: italic;
-	color: #FFF;
-	width: 300px;
+	color: #000000;
+	width: 1000px;
 	height: 80px;
-	float: left;
 	text-align: center;
-	clear: left;
+	clear: both;
+	list-style-position: inside;
+	padding-left: 15px;
+	float: left;
+	left: 15px;
 }
 #date {
-	color: #FFF;
+	color: #555353;
 	width: 300px;
-	height: 80px;
+	height: 50px;
 	float: left;
-	clear: left;
+	clear: right;
 	text-align: left;
+	padding-left: 20px;
 }
 #twitter {
 	width: 350px;
 	float: right;
 	color: #FFFFFF;
 	margin-top: 0px;
-	padding-top: 0px;
+	padding-top: 10px;
 	height: 200px;
-	position: static;
+	position: relative;
 	top: 0px;
 	max-height: 250px;
 }
@@ -145,35 +94,721 @@ header, section, footer, aside, article, figure {
 	margin-top: 40px;
 	width: 100%;
 }
-.sidebar {
-	color: #FFF;
-	width: 20%;
-	float: left;
-}
+
 .pagecontent {
 	color: #FFF;
-	width: 75%;
+	width: 100%;
 	float: right;
 	border-left: 1px dashed #999999;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
-.pagecon {
-	color: #FFF;
-	width: 90%;
-	float: right;
-}
-#container .contentbox .sidebar p img {
-	float: left;
-	text-align: center;
-}
+
+
 #CompanyName {
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 24px;
 	font-style: italic;
-	color: #F8DBDC;
+	color: #226818;
+	/* [disabled]clear: none; */
+	border-top-style: none;
+	margin-left: auto;
+	margin-right: auto;
+	height: 500px;
 }
 
 #CompanyContent {
 	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
 	font-size: 14px;
-	color: #FFFFFF;
+	color: #040404;
+	height: 400px;
+	clear: left;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	display: block;
+}
+.cf:before, .cf:after{
+    content:"";
+    display:table;
+}
+ 
+.cf:after{
+    clear:both;
+}
+ 
+.cf{
+    zoom:1;
+}    
+/* Form wrapper styling */
+
+/* Form text input */
+ 
+#searchboxcontent {
+    width: 300px;
+    height: 20px;
+    padding: 10px 5px;
+    float: left;    
+    font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    border: 0;
+    background: #eee;
+    border-radius: 3px 0 0 3px;      
+}
+ 
+#searchboxcontent:focus {
+    outline: 0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}
+ 
+#searchboxcontent::-webkit-input-placeholder {
+   color: #999;
+   font-weight: normal;
+   font-style: italic;
+}
+ 
+#searchboxcontent:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}
+ 
+#searchboxcontent:-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}    
+ 
+/* Form submit button */
+#searchbutton {
+	overflow: visible;
+	position: relative;
+	float: right;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 40px;
+	width: 110px;
+	font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+	color: #fff;
+	text-transform: uppercase;
+	background-color: #E20048;
+	border-radius: 0 3px 3px 0;
+	text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+}   
+   
+#searchbutton:hover{     
+    background: #e54040;
+}   
+   
+#searchbutton:active,
+.form-wrapper button:focus{   
+    background: #c42f2f;
+    outline: 0;   
+}
+ 
+#searchbutton:before { /* left arrow */
+    content: '';
+    position: absolute;
+    border-width: 8px 8px 8px 0;
+    border-style: solid solid solid none;
+    border-color: transparent #d83c3c transparent;
+    top: 12px;
+    left: -6px;
+}
+ 
+#searchbutton:hover:before{
+    border-right-color: #e54040;
+}
+ 
+#searchbutton:focus:before,
+#searchbutton:active:before{
+        border-right-color: #c42f2f;
+}      
+ 
+#searchbutton::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+    border: 0;
+    padding: 0;
+}    #searchdiv {
+	clear: both;
+}
+#searchbox {
+	float: right;
+	/* [disabled]left: 25px;
+	/* [disabled]right: 20px; */
+	/* [disabled]padding-right: 20px; */
+	margin-right: 20px;
+	padding-top: 5px;
+}
+
+/* RSS reader CSS*/
+.smarticker{
+	width: 100%;
+	background: #fff;
+	margin: 0 auto;
+	direction: ltr;
+}
+
+.box{
+	min-height:30px;
+	background: #fff;
+	overflow: auto;
+}
+
+.border{
+	border:1px solid #ccc;
+}
+
+.rounded{
+	border-radius: 20px;
+}
+
+.shadow{
+	box-shadow: 0px 0px 5px #999;
+}
+
+.size1{
+	height: 30px;
+	overflow: hidden;
+}
+
+.smarticker .sec1, .smarticker .sec1-2, .smarticker .sec2, .smarticker .sec3, .smarticker .sec4, .smarticker .sec5, .smarticker .sec6, .smarticker .sec7{
+	float: left;
+}
+
+.smarticker .sec1{
+	width: 10%;
+}
+
+.smarticker .sec1-2{
+	width: 15%;
+}
+
+.smarticker .sec2{
+	width: 20%;
+}
+
+.smarticker .sec3{
+	width: 33.333%;
+}
+
+.smarticker .sec4{
+	width: 25%;
+}
+
+.smarticker .sec5{
+	width: 50%;
+}
+
+.smarticker .sec6{
+	width: 60%;
+}
+
+.smarticker .sec7{
+	width: 70%;
+}
+
+.smarticker ul{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.smarticker .smarticker-cats, .smarticker-cats .catlist, .smarticker .smarticker-category, .smarticker .smarticker-news{
+	height: 100%;
+	overflow: hidden;
+}
+
+.smarticker .smarticker-cats, .smarticker .smarticker-category{
+	text-align: center;
+}
+
+.smarticker li{
+	height: 30px;
+	line-height: 28px;
+}
+
+.smarticker a{
+	text-decoration: none;
+}
+
+.smarticker .smarticker-news{
+	text-align: left;
+	position: relative;
+}
+
+.smarticker .smarticker-news ul{
+	margin-left: 15px;
+	display: none;
+}
+
+.smarticker .smarticker-news ul li{
+	position: absolute;
+	display: none;
+	height: 100%;
+	top: 0px;
+}
+
+.smarticker-category a{
+	font-size: 16px;
+}
+
+.cover{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 2;
+	float: right;
+}
+
+.flasher{
+	width:10px;
+	height:100%;
+	line-height:28px;
+	margin-left:5px;
+	float:left;
+}
+
+.smart-controller{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	height: 100%;
+	z-index: 3;
+}
+
+
+
+
+/* ---------- Theme 1 ----------- */
+
+.theme1{
+	background: #fff;
+}
+
+.theme1 .smarticker-news a{
+	color: #666;
+	font-family: Calibri, Tahoma;
+	font-size: 12px;
+}
+
+.theme1 .smarticker-cats{
+	position: relative;
+	background: #999;
+}
+
+.theme1 .smarticker-cats .left{
+	position: absolute;
+	left: 0px;
+	background: url('../images/left-flc-w.png') no-repeat right center;
+	width: 20%;
+	height: 100%;
+}
+
+.theme1 .smarticker-cats .right{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	z-index: 1;
+	background: url('../images/right-flc-w.png') no-repeat right center;
+	width: 20%;
+	height: 100%;
+}
+
+.no-category .smarticker-cats .left{
+	display: none;
+}
+
+.theme1 .smarticker-cats a{
+	color: #fff;
+	text-decoration: none;
+	font-family: Calibri, Tahoma;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.theme1 .smarticker-category a{
+	color: #999;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: Calibri, Tahoma;
+}
+
+.theme1 .flasher{
+	color:#666;
+}
+
+.smarticker-cats li{
+	background-color:#c3c3c3;
+}
+
+
+/* ------------- Theme 2 ------------ */
+.theme2{
+	background: #333;
+}
+
+.theme2 .smarticker-news a{
+	color: #fff;
+	font-family: Calibri, Tahoma;
+	font-size: 12px;
+}
+
+.theme2 .smarticker-cats{
+	position: relative;
+	background: #999;
+}
+
+.theme2 .smarticker-cats .left{
+	position: absolute;
+	left: 0px;
+	background: url('../images/left-flc-b.png') no-repeat right center;
+	width: 20%;
+	height: 100%;
+}
+
+.theme2 .smarticker-cats .right{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	z-index: 1;
+	background: url('../images/right-flc-b.png') no-repeat right center;
+	width: 20%;
+	height: 100%;
+}
+
+.no-category .smarticker-cats .left{
+	display: none;
+}
+
+.theme2 .smarticker-cats ul a{
+	color: #fff;
+	text-decoration: none;
+	font-family: Calibri, Tahoma;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.theme2 .smarticker-category a{
+	color: #ccc;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: Calibri, Tahoma;
+}
+
+.theme2 .flasher{
+	color:#fff;
+}
+
+.theme2 .tickertitle{
+	background-color:#4575d4;
+}
+
+/* ------------- Theme 3 ------------ */
+.theme3{
+	background: #333;
+}
+
+.theme3 .smarticker-news a{
+	color: #fff;
+	font-family: Calibri, Tahoma;
+	font-size: 12px;
+}
+
+.theme3 .smarticker-cats{
+	position: relative;
+	background: #fff;
+}
+
+.theme3 .smarticker-cats .left, .theme3 .smarticker-cats .right{
+	display: none;
+}
+
+.theme3 .smarticker-cats a{
+	color: #fff;
+	text-decoration: none;
+	font-family: Calibri, Tahoma;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.theme3 .smarticker-category a{
+	color: #ccc;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: Calibri, Tahoma;
+}
+
+.theme3 .flasher{
+	color:#fff;
+}
+
+.theme3 .tickertitle{
+	background-color:#cd0074;
+}
+
+/* ------------- Theme 4 ------------ */
+.theme4{
+	background: #fff;
+}
+
+.theme4 .smarticker-news a{
+	color: #666;
+	font-family: Calibri, Tahoma;
+	font-size: 12px;
+}
+
+.theme4 .smarticker-cats{
+	position: relative;
+	background: #999;
+}
+
+.theme4 .smarticker-cats .left, .theme4 .smarticker-cats .right{
+	display: none;
+}
+
+.theme4 .smarticker-cats a{
+	color: #fff;
+	text-decoration: none;
+	font-family: Calibri, Tahoma;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.theme4 .smarticker-category a{
+	color: #999;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: Calibri, Tahoma;
+}
+
+.theme4 .flasher{
+	color:#666;
+}
+
+.theme4 .tickertitle{
+	background-color:#00b64f;
+}
+
+/* ----------- Text Controller ------------ */
+.c1 .smart-controller span{
+	text-align: center;
+	background: #fff;
+	color: #ccc;
+	font-size: 11px;
+	display: block;
+	padding: 9px 9px;
+	font-family: Calibri, Tahoma;
+	float: left;
+	border-left: 1px solid #eee;
+	cursor: pointer;
+	-webkit-transition: all 0.2s ease-in-out 0s;
+	-moz-transition: all 0.2s ease-in-out 0s;
+	-o-transition: all 0.2s ease-in-out 0s;
+	transition: all 0.2s ease-in-out 0s;
+}
+
+.c1 .smart-controller span:hover{
+	color: #bbb;
+	background: #efefef;
+	-webkit-transition: all 0.2s ease-in-out 0s;
+	-moz-transition: all 0.2s ease-in-out 0s;
+	-o-transition: all 0.2s ease-in-out 0s;
+	transition: all 0.2s ease-in-out 0s;
+}
+
+.c1 .smart-controller span:active{
+	color: #999;
+	background: #dfdfdf;
+	-webkit-transition: all 0.1s ease-in-out 0s;
+	-moz-transition: all 0.1s ease-in-out 0s;
+	-o-transition: all 0.1s ease-in-out 0s;
+	transition: all 0.1s ease-in-out 0s;
+}
+
+/* ----------- C2 Controller = Icons ------------ */
+.c2 .smart-controller span{
+	text-align: center;
+	background-color: transparent;
+	background-image:  url('../images/controller.png');
+	background-repeat: no-repeat;
+	color: #ccc;
+	text-indent: -100000px;
+	font-size: 11px;
+	display: block;
+	padding: 9px 12px;
+	font-family: Calibri, Tahoma;
+	float: left;
+	border-left: 1px solid #eee;
+	cursor: pointer;
+	-webkit-transition: all 0.2s ease-in-out 0s;
+	-moz-transition: all 0.2s ease-in-out 0s;
+	-o-transition: all 0.2s ease-in-out 0s;
+	transition: all 0.2s ease-in-out 0s;
+}
+
+.theme3.c2 .smart-controller span, .theme2.c2 .smart-controller span{
+	border-left: 1px solid #999;
+}
+
+.c2 .smart-controller span:hover{
+	color: #bbb;
+	background-color: transparent;
+	-webkit-transition: all 0.2s ease-in-out 0s;
+	-moz-transition: all 0.2s ease-in-out 0s;
+	-o-transition: all 0.2s ease-in-out 0s;
+	transition: all 0.2s ease-in-out 0s;
+}
+
+.c2 .smart-controller span:active{
+	color: #999;
+	background-color: transparent;
+	-webkit-transition: all 0.1s ease-in-out 0s;
+	-moz-transition: all 0.1s ease-in-out 0s;
+	-o-transition: all 0.1s ease-in-out 0s;
+	transition: all 0.1s ease-in-out 0s;
+}
+
+.c2 .next-news:active, .c2 .next-news:hover{
+	background-position: right center;
+	background-image: url('../images/controller.png');
+	background-repeat: no-repeat;
+}
+
+.c2 .prev-news:active, .c2 .prev-news:hover{
+	background-position: left center;
+	background-image: url('../images/controller.png');
+	background-repeat: no-repeat;
+}
+
+.c2 .prev-news{
+	background-position: left center;
+}
+
+.c2 .next-news{
+	background-position: right center;
+}
+
+.progress-bar{
+	width:100%;
+	height:2px;
+	background-color:#eee;
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	z-index:3;
+}
+
+.no-subcategory .smarticker-category{
+	border-right: 1px solid #ccc;
+	background: #eee;
+}
+
+.tickertitle{
+	height:100%;
+	line-height:30px;
+	text-align:center;
+	font-weight:bold;
+	background-color:#e20048;
+	color:#fff;
+}
+#contentmiddle {
+	width: 75%;
+	border-color: #F70105;
+	border-style: solid;
+	/* [disabled]display: inline-block; */
+	margin-left: auto;
+	clear: both;
+	margin-right: auto;
+}
+#companyInfo {
+	clear: both;
+	margin-left: auto;
+	margin-right: auto;
+	color: #E20048;
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-style: normal;
+	font-size: xx-large;
+	height: 43px;
+}
+#secondgraph {
+	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+	font-size: 14px;
+	color: #040404;
+	height: 550px;
+	margin-left: auto;
+	margin-right: auto;
+	width: auto;
+	clear: left;
+	display: none;
+}
+
+
+/* Menu stuff */
+#nav, #nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#nav #toggleMenu, #nav #hideMenu {
+	display: none;
+}
+
+/* The main navigation bar */
+#nav {
+	position: relative;
+	display: block;
+	height: 44px;
+	width: 100%; /* The menu will take the width of its container */
+	border-radius: 3px;
+	background-color: rgba(0,0,0,0.05);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#nav>li {
+	display: block;
+	float: left;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+/* The main navigation links */
+#nav>li>a {
+	/* Layout */
+	display: block;
+	padding: 13px 22px;
+	border-color: #fff;
+	/* Typography */
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	color: #A8A7A7;
+	text-transform: uppercase;
+	text-decoration: none;
+	/* Transitions */
+	-webkit-transition: color .2s ease-in, border-top-color .2s ease-in;
+	-ms-transition: color .2s ease-in, border-top-color .2s ease-in;
+	-moz-transition: color .2s ease-in, border-top-color .2s ease-in;
+	-o-transition: color .2s ease-in, border-top-color .2s ease-in;
+	transition: color .2s ease-in, border-top-color .2s ease-in;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* The hover state of the links */
+#nav>li:hover>a {
+	color: #E20048;
+	border-top-color: #E20048;
+	display: block;
+}
+
+#nav>li.dropdown>a {
+	padding-right: 28px;
 }
